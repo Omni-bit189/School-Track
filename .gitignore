@@ -14,6 +14,17 @@ __pycache__/
 dist/
 build/
 .pytest_cache/
+.opencode/
+
+# Flutter
+schooltrack_flutter/build/
+schooltrack_flutter/.dart_tool/
+schooltrack_flutter/.flutter-plugins
+schooltrack_flutter/.flutter-plugins-dependencies
+schooltrack_flutter/.packages
+schooltrack_flutter/.idea/
+schooltrack_flutter/.flutter/
+*/build/*
 
 # OS
 .DS_Store
