@@ -5,6 +5,8 @@
 - **PostgreSQL** database with the full schema
 - **HTTPS** via self-signed SSL certificate (locally secure)
 - Live auto-reload during development
+- **Flutter** frontend with role-based access (Admin, Teacher, Mentor, Student, Parent)
+- **Flutter** frontend with role-based access (Admin, Teacher, Mentor, Student, Parent)
 
 ---
 
@@ -161,6 +163,71 @@ https://localhost:8443/health
 
 ## Project Structure
 
+schooltrack/
+├── app/
+│   ├── main.py                    # FastAPI app + startup
+│   ├── api/
+│   │   └── v1/
+│   │       ├── __init__.py        # Router registration
+│   │       └── endpoints/
+│   │           ├── auth.py        # Login, register
+│   │           ├── schools.py     # Schools, classes, subjects
+│   │           ├── students.py    # Student CRUD
+│   │           └── attendance.py  # Mark + query attendance
+│   ├── core/
+│   │   ├── config.py              # Settings from .env
+│   │   └── security.py            # JWT, password hashing
+│   ├── db/
+│   │   └── session.py             # SQLAlchemy engine + Base
+│   └── models/
+│       ├── __init__.py            # All model imports
+│       ├── school.py              # School model
+│       ├── user.py                # User + roles
+│       ├── academic.py            # Class, Subject, Student
+│       └── operations.py          # Attendance, Results, Notifications, Worksheets
+├── scripts/
+│   ├── generate_cert.py           # Create local SSL cert
+│   └── seed_data.py               # Sample data for testing
+├── certs/                         # SSL certs (gitignored)
+├── .env                           # Your secrets (gitignored)
+├── .env.example                   # Template to copy
+├── requirements.txt
+└── schooltrack_flutter/           # Flutter frontend with role-based access
+    ├── lib/
+    │   ├── core/
+    │   │   ├── auth_provider.dart
+    │   │   ├── theme.dart
+    │   │   └── router.dart
+    │   ├── screens/
+    │   │   ├── admin/
+    │   │   │   ├── admin_dashboard.dart
+    │   │   │   ├── school_settings_screen.dart
+    │   │   │   └── users_screen.dart
+    │   │   ├── teacher/
+    │   │   │   ├── attendance_screen.dart
+    │   │   │   ├── results_screen.dart
+    │   │   │   └── teacher_dashboard.dart
+    │   │   ├── mentor/
+    │   │   │   ├── mentee_detail_screen.dart
+    │   │   │   └── mentor_dashboard.dart
+    │   │   ├── student/
+    │   │   │   └── student_dashboard.dart
+    │   │   ├── login_screen.dart
+    │   │   ├── settings_screen.dart
+    │   │   ├── students_screen.dart
+    │   │   ├── results_screen.dart
+    │   │   └── parent_dashboard.dart
+    │   ├── widgets/
+    │   │   ├── admin_layout.dart
+    │   │   ├── base_layout.dart
+    │   │   ├── mentor_layout.dart
+    │   │   ├── parent_layout.dart
+    │   │   ├── student_layout.dart
+    │   │   ├── teacher_layout.dart
+    │   │   └── stat_card.dart
+    │   └── main.dart
+    ├── pubspec.yaml
+    └── README.md
 ```
 schooltrack/
 ├── app/
