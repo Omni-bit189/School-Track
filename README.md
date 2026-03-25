@@ -6,7 +6,7 @@
 - **HTTPS** via self-signed SSL certificate (locally secure)
 - Live auto-reload during development
 - **Flutter** frontend with role-based access (Admin, Teacher, Mentor, Student, Parent)
-- **Flutter** frontend with role-based access (Admin, Teacher, Mentor, Student, Parent)
+
 
 ---
 
