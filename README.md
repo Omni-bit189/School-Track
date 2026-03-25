@@ -163,6 +163,7 @@ https://localhost:8443/health
 
 ## Project Structure
 
+```
 schooltrack/
 ├── app/
 │   ├── main.py                    # FastAPI app + startup
@@ -232,36 +233,6 @@ schooltrack/
     ├── pubspec.yaml                   # Flutter dependencies
     ├── pubspec.lock                   # Locked dependency versions
     └── README.md                      # Flutter-specific README
-```
-schooltrack/
-├── app/
-│   ├── main.py                    # FastAPI app + startup
-│   ├── api/
-│   │   └── v1/
-│   │       ├── __init__.py        # Router registration
-│   │       └── endpoints/
-│   │           ├── auth.py        # Login, register
-│   │           ├── schools.py     # Schools, classes, subjects
-│   │           ├── students.py    # Student CRUD
-│   │           └── attendance.py  # Mark + query attendance
-│   ├── core/
-│   │   ├── config.py              # Settings from .env
-│   │   └── security.py            # JWT, password hashing
-│   ├── db/
-│   │   └── session.py             # SQLAlchemy engine + Base
-│   └── models/
-│       ├── __init__.py            # All model imports
-│       ├── school.py              # School model
-│       ├── user.py                # User + roles
-│       ├── academic.py            # Class, Subject, Student
-│       └── operations.py          # Attendance, Results, Notifications, Worksheets
-├── scripts/
-│   ├── generate_cert.py           # Create local SSL cert
-│   └── seed_data.py               # Sample data for testing
-├── certs/                         # SSL certs (gitignored)
-├── .env                           # Your secrets (gitignored)
-├── .env.example                   # Template to copy
-└── requirements.txt
 ```
 
 ---
