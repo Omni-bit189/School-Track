@@ -192,12 +192,15 @@ schooltrack/
 ├── .env                           # Your secrets (gitignored)
 ├── .env.example                   # Template to copy
 ├── requirements.txt
-└── schooltrack_flutter/           # Flutter frontend with role-based access
+└── schooltrack_flutter/           # Flutter frontend with role-based access (Admin, Teacher, Mentor, Student, Parent)
     ├── lib/
     │   ├── core/
-    │   │   ├── auth_provider.dart
-    │   │   ├── theme.dart
-    │   │   └── router.dart
+    │   │   ├── api_client.dart        # HTTP client for API communication
+    │   │   ├── auth_provider.dart     # Authentication state management
+    │   │   ├── router.dart            # App routing with role-based redirects
+    │   │   ├── theme.dart             # Color themes and styling
+    │   │   └── theme_provider.dart    # Dark/light theme management
+    │   ├── main.dart                  # App entry point
     │   ├── screens/
     │   │   ├── admin/
     │   │   │   ├── admin_dashboard.dart
@@ -217,17 +220,18 @@ schooltrack/
     │   │   ├── students_screen.dart
     │   │   ├── results_screen.dart
     │   │   └── parent_dashboard.dart
-    │   ├── widgets/
-    │   │   ├── admin_layout.dart
-    │   │   ├── base_layout.dart
-    │   │   ├── mentor_layout.dart
-    │   │   ├── parent_layout.dart
-    │   │   ├── student_layout.dart
-    │   │   ├── teacher_layout.dart
-    │   │   └── stat_card.dart
-    │   └── main.dart
-    ├── pubspec.yaml
-    └── README.md
+    │   └── widgets/
+    │       ├── admin_layout.dart      # Admin role layout
+    │       ├── base_layout.dart       # Base layout for role-specific screens
+    │       ├── main_layout.dart       # Legacy main layout (being phased out)
+    │       ├── mentor_layout.dart     # Mentor role layout
+    │       ├── parent_layout.dart     # Parent role layout (NEW)
+    │       ├── stat_card.dart         # Reusable statistics card widget
+    │       ├── student_layout.dart    # Student role layout
+    │       └── teacher_layout.dart    # Teacher role layout
+    ├── pubspec.yaml                   # Flutter dependencies
+    ├── pubspec.lock                   # Locked dependency versions
+    └── README.md                      # Flutter-specific README
 ```
 schooltrack/
 ├── app/
